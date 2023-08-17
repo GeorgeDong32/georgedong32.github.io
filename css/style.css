@@ -1266,6 +1266,14 @@ body.light hr.separator {
     content: "\f007";
   }
 
+  .btn btn-project:before {
+    content: "\f07c";
+  }
+
+  .btn btn-blog:before {
+    content: "\f086";
+  }
+
   .btn.btn-portfolio:before {
     content: "\f07c";
     margin-top: -8px;
