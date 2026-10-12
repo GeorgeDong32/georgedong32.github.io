@@ -55,6 +55,8 @@ class SiteTests(unittest.TestCase):
                         continue
                     value = attrs[key]
                     self.assertTrue(value, f"Empty {key} in {name}")
+                    if tag == "link" and attrs.get("rel") == "canonical":
+                        continue  # relative canonical resolves per serving host
                     url = urlsplit(value)
                     if url.scheme or url.netloc:
                         continue

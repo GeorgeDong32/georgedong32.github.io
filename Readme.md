@@ -19,7 +19,7 @@ Open `http://localhost:8000`. You can also open `index.html` directly. The Pytho
 - `img/projects/*.webp`: original project previews/artwork reused in Earlier Projects. These are historical materials, not newly generated screenshots.
 - `tests/check_site.py`: standard-library structural, metadata, local-link, image-alt and compatibility checks.
 
-The previous template's CSS, fonts, scripts and alternate-color assets are retained for history/compatibility, but none are loaded by the new pages. They can be removed separately after checking for external deep links. GitHub Pages can serve the repository directly as before; this change does not modify deployment settings.
+The previous template's CSS, scripts and alternate-color assets are retained for history/compatibility, but none are loaded by the new pages. The unused FontAwesome webfonts and the unused Inter `font-family` entry were removed; text now uses the system font stack. They can be removed separately after checking for external deep links. GitHub Pages can serve the repository directly as before; this change does not modify deployment settings.
 
 ## Content maintenance
 
@@ -32,8 +32,8 @@ Keep these distinctions clear:
 - Pi-Extensions is a suite with four linked components. Describe each component's job rather than publishing arbitrary skill ratings.
 - EDA / chip design is a research interest here. Add outcomes or papers only when there is a public, verified source.
 - Earlier Projects intentionally preserves legacy work without claiming current support, availability or a working public demo where none is linked.
-- Education dates and volatile statistics are omitted. Recheck the public profile when updating education or roles.
-- Contact uses the public Outlook address. No phone number or contact form is included.
+- Education wording deliberately omits the university and other location details; keep it that way. Education dates and volatile statistics are omitted. Recheck the public profile when updating education or roles.
+- Contact lists both public email addresses (Outlook and Foxmail). No phone number or contact form is included.
 
 ### Sources checked for this refresh (2026-10-12)
 
@@ -50,7 +50,7 @@ The existing blog link is preserved: https://blog.georgedong.tech/. External lin
 
 ### Domain and indexing
 
-Canonical and Open Graph URLs currently use `https://georgedong32.github.io/`, the repository's GitHub Pages address. If the production primary domain is `global.georgedong.tech` or another domain, update the canonical URLs in all three HTML files and `og:url` / `og:image` in `index.html` together before merging. No DNS, hosting, redirect or deployment configuration is changed here.
+The site is served from the same repository through both GitHub Pages and Cloudflare Pages, and the primary domain may change over time. Canonical URLs are therefore relative (`/`) instead of pinned to a hostname: each serving host resolves its own canonical URL, and no domain is hard-coded in routing. `og:url` is omitted for the same reason (relative Open Graph URLs are unreliable across consumers). `og:image` keeps one absolute URL on `github.io` because the Open Graph spec expects absolute image addresses; it is a resource link, not routing, and stays valid regardless of the serving domain. No DNS, hosting, redirect or deployment configuration is changed here.
 
 The existing `robots.txt` is preserved. It broadly disallows crawling; review that policy deliberately if the site should become search-indexable. Metadata alone does not override it.
 
